@@ -1,8 +1,8 @@
-import { X } from "lucide-react";
+import { X,ChevronLeft } from "lucide-react";
 import { useAuthStore } from "../store/useAuthStore";
 import { useChatStore } from "../store/useChatStore";
 
-const ChatHeader = () => {
+const ChatHeader = ({onBack}) => {
   const { selectedUser, setSelectedUser } = useChatStore();
   const { onlineUsers } = useAuthStore();
 
@@ -11,6 +11,9 @@ const ChatHeader = () => {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           {/* Avatar */}
+          <button className="btn btn-sm btn-ghost md:hidden" onClick={onBack}>
+            <ChevronLeft />
+          </button>
           <div className="avatar">
             <div className="size-10 rounded-full relative">
               <img src={selectedUser.profilePic || "/avatar.png"} alt={selectedUser.fullName} />
@@ -27,7 +30,7 @@ const ChatHeader = () => {
         </div>
 
         {/* Close button */}
-        <button onClick={() => setSelectedUser(null)}>
+        <button className="hidden md:block"  onClick={() => setSelectedUser(null)}>
           <X />
         </button>
       </div>
