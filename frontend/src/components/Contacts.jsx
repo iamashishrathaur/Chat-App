@@ -26,7 +26,7 @@ const Contacts = ({ onContactSelect }) => {
       <aside className="h-full w-full md:w-[32%] lg:w-72 border-r border-base-300 flex flex-col">
         {/* Header Section */}
         
-        <div className="border-b border-base-300 w-full p-5 flex flex-col">
+        <div className="hidden md:flex border-b border-base-300 w-full p-5  flex-col">
         <div className="flex items-center gap-2">
           <Users className="size-6" />
           <span className="font-medium">Contacts</span>
